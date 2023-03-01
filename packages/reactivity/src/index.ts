@@ -1,1 +1,1 @@
-export const p = Promise.resolve(true);
+export const p = 1;
