@@ -1,0 +1,6 @@
+node_modules
+dist
+*.mjs
+package-lock.json
+*.html
+build
