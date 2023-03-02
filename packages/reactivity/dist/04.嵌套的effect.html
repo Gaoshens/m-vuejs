@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="hh1"></h1>
+    <h1 id="name1"></h1>
+    <h1 id="name2"></h1>
+    <h1 id="name3"></h1>
+    <button id="btn1">分支切换</button>
+    <button id="btn2">Facebook</button>
+    <button id="btn3">React</button>
+    <script src="./reactivity.global.js"></script>
+    <script>
+        // 分支切换解决方案
+        // 如果触发的effectFn 和全局的activeEffect相等,则不触发
+        const { reactive,effect }  = reactivity;
+        const info = { name:'vue3',author:'尤雨溪',age:10 };
+        const _info = reactive(info);
+        effect(()=>{
+            console.log('执行了');
+            document.getElementById('hh1').textContent = `框架名称:${_info.name},作者:${_info.author}年龄:${_info.age}`
+        })
+        effect(()=>{
+                document.getElementById('name1').textContent = `${_info.name}`
+            effect(()=>{
+                    document.getElementById('name2').textContent = `${_info.name}`
+                effect(()=>{
+                    document.getElementById('name3').textContent = `${_info.name}`
+                })
+            })
+        })
+    </script>
+</body>
+</html>

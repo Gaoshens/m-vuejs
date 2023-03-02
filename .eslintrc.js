@@ -19,5 +19,7 @@ module.exports = {
         semi: true,
       },
     ],
+    '@typescript-eslint/ban-types': 'off', // 允许使用object
+    '@typescript-eslint/no-this-alias': 'off', // 允许this别名
   },
 };

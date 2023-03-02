@@ -29,10 +29,11 @@ const formatConfigs = {
   },
   cjs: {
     file: resolve(`dist/${name}.cjs.js`),
+    file: resolve(`dist/${name}.cjs.js`),
     format: 'cjs',
   },
   global: {
-    file: resolve(`dist/${name}.mjs.js`),
+    file: resolve(`dist/${name}.global.js`),
     format: 'iife',
   },
 };
@@ -45,6 +46,7 @@ const createConfig = format => {
       file,
       format: _format,
       name,
+      sourcemap:true,
     },
     plugins: [
       nodeResolve(),
@@ -61,4 +63,4 @@ const createConfig = format => {
   };
 };
 
-export default formats.map(format => createConfig(format));
+export default (['global']||formats).map(format => createConfig(format));

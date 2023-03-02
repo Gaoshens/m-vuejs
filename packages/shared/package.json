@@ -1,0 +1,13 @@
+{
+  "name": "@vue/shared",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/index.ts",
+  "buildOptions":{
+    "name":"shared",
+    "formats":["esm","cjs"]
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT"
+}
